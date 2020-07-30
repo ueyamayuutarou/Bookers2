@@ -1,0 +1,26 @@
+
+<div class="container">
+  <div calss="row">
+    <div class="col-md-6 col-md-offset-3">
+    	<h1>Editing Book</h1>
+      <% if @book.errors.any? %>
+       <%= book.errors.count%>errors 
+        <div id="error_explanation">
+          <ul>
+            <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          </ul>
+        </div>
+        <% end %>
+        <% end %>
+    	<%= form_for(@book) do |f|%>
+       <h3>Title</h3>
+       <%= f.text_field :title %>
+       <h3>Opinion</h3>
+       <%= f.text_field :body %><br>
+       <%= f.submit 'Update Book', calss:"btn btn-primary col-xs-12" %>
+       <% end %>
+       <%= link_to 'Show', book_path %>|<%= link_to 'Back', books_path %>
+    </div>
+  </div>
+</div>
